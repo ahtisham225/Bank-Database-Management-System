@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} login {% endblock title %}
+{% block body %}
+
+
+<div class="container">
+      <div class="col-md-6 mx-auto text-center">
+         <div class="header-title">
+            <h1 class="wv-heading--title">
+               Please sign in
+            </h1>
+         </div>
+      </div>
+    <div class="myform form ">
+        <form action"/login" method="post" >
+        {% csrf_token %}             
+            <div class="form-floating">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name = "email">
+            <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+            <label for="floatingPassword">Password</label>
+            </div>
+            <button class="btn btn-primary" type="submit">Sign in</button>
+        </form>
+    </div>
+  </div>    
+
+    <h class="h3 mb-3 fw-normal">Don't have account <a href = "/signup">Sign Up</a></h1>
+
+
+{% endblock body%}
