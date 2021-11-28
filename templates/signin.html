@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} login {% endblock title %}
+{% block body %}
+<h1> Log In </h1>
+   
+<form method = "POST">
+   {% csrf_token %}
+   <section class = "form-control">
+      <h3> Enter Login Details</h3>
+      {{form}}
+      <input type="submit" name="submit" value="Log In"/>
+      <a href="\signup">Sign Up For Free</a>
+      </section>
+</form>
+</div>
+{% endblock body%}

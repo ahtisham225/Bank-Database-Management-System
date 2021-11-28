@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %} Dashboard {% endblock title %}
+{% block body %}
+<div id="edit_details" style="float:right;">
+                        <button type="button" id="edit_button"><a href="{% url 'clients:dashboard' %}">Home</a></button>
+                    </div>
+   
+<h1> Personal Details </h1>
+
+<h2>User Name : {{ customer.name }} </h2>
+<h2>Phone Number : {{ customer.phone }} </h2>
+<h2>Email : {{ customer.email }} </h2>
+<h2>Cnic : {{ customer.cnic }} </h2>
+{% endblock body%}
