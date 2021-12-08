@@ -16,3 +16,8 @@ class Contact(models.Model):
     message=models.TextField(null = True)
 
 
+
+class Account(models.Model):
+    Accno = models.IntegerField(primary_key=True)
+    Owner = models.ForeignKey(customer, on_delete=models.CASCADE,)
+    Balance = models.FloatField(default=0)

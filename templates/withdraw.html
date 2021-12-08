@@ -1,0 +1,49 @@
+{% extends 'user_account.html' %}
+{% block title %} Withdraw {% endblock title %}
+{% block body %}
+<table width=70% height=60%>
+<div id="edit_details" style="float:right;">
+    <button type="button" id="edit_button"><a href="{% url 'clients:dashboard' %}">Home</a></button>
+</div>
+<tr>
+    <td></td>
+
+    <td>
+
+        <div id="details_box">
+            <form name="withdraw_details" action="withdraw" method="POST">
+                <table id="details_table" cellpadding=5px;>
+                    {% if accounts %}
+                    {% csrf_token %}
+                    <tr>
+                        <td>Amount to be withdrawn :</td>
+                        <td><input type="text" name="amount" placeholder="Amount"></td>
+                    </tr>
+                    <tr>
+                        <td> Withdraw from account :  {{ accounts.Accno }}</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <!--<td><input type="button" value="Withdraw"></td>-->
+                        <td><button>Withdraw</button></td>
+                    </tr>
+                    {% else %}
+                        <tr> <td> New Customer. No accounts yet. </td></tr>
+                    {% endif %}
+                    <tr>
+                        <td><span>{{msg|safe}}</span></td>
+                    </tr>
+                    <tr>
+                        <td> <small>By Withdrawing money from your account, you agree to the <a href="#">Terms and Conditions</a> of amount transfer</small>. <br></td>
+                    </tr>
+                </table>
+            </form>
+            
+           
+            
+        </div>
+    </td>
+</tr>
+</table>
+{% endblock body%}

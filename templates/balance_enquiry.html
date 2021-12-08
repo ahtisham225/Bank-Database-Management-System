@@ -1,0 +1,17 @@
+{% extends 'user_account.html' %}
+{% block title %} Balance Enquiry {% endblock title %}
+{% block body %}
+<div id="edit_details" style="float:right;">
+                        <button type="button" id="edit_button"><a href="{% url 'clients:dashboard' %}">Home</a></button>
+                    </div>
+   
+<h1 style="font-size:46px;text-align:center;"> Balance Enquiry </h1>
+<table id="details_table" cellpadding=5px;>
+<tr>
+    <td>Account No : {{ accounts.Accno }}</td>
+</tr>
+<tr>
+    <td>Amount in Your Account  : PKR. {{ accounts.Balance }}</td>
+</tr>
+</table>
+{% endblock body%}

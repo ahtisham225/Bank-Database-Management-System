@@ -1,0 +1,39 @@
+{% extends 'user_account.html' %}
+{% block title %} Account Modification {% endblock title %}
+
+
+
+{% block body %}
+<div id="edit_details" style="float:right;">
+                        <button type="button" id="edit_button"><a href="{% url 'clients:dashboard' %}">Home</a></button>
+                    </div>
+   
+<h1 style="font-size:46px;text-align:center;" > Account Info Modification </h1>
+
+<form name="details_modification" action="modification" method="POST">
+    <table id="details_table" cellpadding=5px;>
+       {% csrf_token %}
+    <tr>
+        <td> Change User Name : {{ customer.name }} to : </td>
+        <td><input type="text" name="name" placeholder="name"></td>
+    </tr>
+    <tr>
+        <td> Change Phone Number : {{ customer.phone }} to : </td>
+        <td><input type="number" name="phone" placeholder="phone"></td>
+    </tr>
+    <tr>
+        <td> Change Email : {{ customer.email }} to : </td>
+        <td><input type="email" name="email" placeholder="email"></td>
+    </tr>
+    <tr>
+        <td> Change CNIC : {{ customer.cnic }} to : </td>
+        <td><input type="number" name="cnic" placeholder="cnic"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <!--<td><input type="button" value="Withdraw"></td>-->
+        <td><button>Submit</button></td>
+    </tr>
+</table>
+</form>
+{% endblock body%}
