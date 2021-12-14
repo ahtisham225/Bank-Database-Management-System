@@ -2,6 +2,8 @@ from django.contrib import auth
 from django.shortcuts import redirect, render
 from home.models import customer,Account
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import PasswordChangeForm, UserCreationForm, AuthenticationForm
 
 def display_menu(request):
     global cst
@@ -43,6 +45,18 @@ def get_function_choosen(request):
             if obj.Owner == cst:
                 acc = obj
         return render(request,'MobileRecharge.html', {'accounts':acc})
+    elif(menu_choosen == 'Account_Deletion'):
+        for obj in Account.objects.all():
+            if obj.Owner == cst:
+                acc = obj
+                
+        u = User.objects.get(username = cst.username)
+        acc.delete()
+        cst.delete()
+        u.delete()
+        form = AuthenticationForm()
+        messages.success(request,'Account Deleted Successfully')
+        return redirect("home:signin")
 
 
 def deposit(request):
