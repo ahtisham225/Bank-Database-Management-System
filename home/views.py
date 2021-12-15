@@ -186,7 +186,7 @@ def signup(request):
             client.save()
             account.save()
             messages.success(request, 'Your Have Successfully Signed UP now Login To your Profile')
-            return redirect("signin")
+            return redirect("home:signin")
     else:
         form = UserCreationForm()
     return render(request,"signup.html",{"form":form})
@@ -194,5 +194,5 @@ def signup(request):
 def signout(request):
     logout(request)
     messages.success(request, 'Your Have Successfully Signed Out')
-    return redirect("signin")
+    return redirect("home:signin")
     
